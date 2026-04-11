@@ -55,47 +55,51 @@
 ## 📁 Project Structure
 ## 🧠 System Architecture
 
+## 🧠 System Architecture
+
 ```mermaid
 flowchart TD
 
-    %% USER
-    U([👤 User])
+    U[User]
 
-    %% UI
-    subgraph UI[UI Layer (React + Vite)]
+    subgraph UI_Layer
         UI1[Pages]
         UI2[Components]
         UI3[Routing]
     end
 
-    %% FEATURES
-    subgraph F[Core Features]
-        F1[🧪 Ishihara Test]
-        F2[📷 Camera Detection]
-        F3[🎤 Voice Guidance]
-        F4[📊 Dashboard]
+    subgraph Core_Features
+        F1[Ishihara Test]
+        F2[Camera Detection]
+        F3[Voice Guidance]
+        F4[Dashboard]
     end
 
-    %% LOGIC
-    subgraph L[Logic Layer]
+    subgraph Logic_Layer
         L1[Scoring Engine]
         L2[CVD Simulation]
         L3[Color Processing]
     end
 
-    %% DATA
-    subgraph D[Data Layer]
+    subgraph Data_Layer
         D1[LocalStorage]
-        D2[Test Dataset]
+        D2[Test Data]
     end
 
-    %% FLOW
-    U --> UI
-    UI --> F
-    F --> L
-    L --> D
-    D --> UI
+    U --> UI1
+    UI1 --> F1
+    UI1 --> F2
+    UI1 --> F3
+    UI1 --> F4
 
+    F1 --> L1
+    F2 --> L3
+    F3 --> L3
+    F4 --> L1
+
+    L1 --> D1
+    L2 --> D2
+    L3 --> D1
 ---
 
 ## 📸 Feature Showcase
