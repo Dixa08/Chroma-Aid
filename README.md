@@ -57,7 +57,6 @@
 - **Utilities:** Custom color engine logic
 
 ---
-
 ## 🧩 Project Structure (Visual)
 
 ```mermaid
@@ -91,7 +90,6 @@ graph TD
     A --> I[README.md]
     A --> J[package.json]
     A --> K[vite.config.js]
-
 ## 📸 Feature Showcase
 
 ### 🧪 Color Blindness Test
