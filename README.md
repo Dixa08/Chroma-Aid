@@ -7,7 +7,7 @@
 ## 🚀 Features
 
 ### 🧪 Color Blindness Test
-- Interactive Ishihara-style test
+- Interactive Ishihara-style test and hrr test
 - Detects:
   - Normal Vision
   - Protanopia (Red deficiency)
