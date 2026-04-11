@@ -72,7 +72,7 @@
 ### 💡 Recommendations
 <img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture4.jpeg" width="600">
 
-### 📷 Camera Detection
+### 📊  how normal and cvd see the image 
 <img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture5.jpeg" width="600">
 
 ### 📊  how normal and cvd see the image 
