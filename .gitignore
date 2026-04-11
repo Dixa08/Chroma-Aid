@@ -1,8 +1,32 @@
-node_modules
-.DS_Store
-dist
-dist-ssr
-*.local
+# Dependencies (for future Node/React setup)
+node_modules/
+
+# Build output (for Vite/React later)
+dist/
+dist-ssr/
+
+# Environment variables
 .env
 .env.*
 !.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# Local config files
+*.local
+
+# Cache / misc
+.cache/
+coverage/
