@@ -112,3 +112,13 @@ graph TD
 
 ### 🎤 Voice Assistance
 ![Voice](./img/picture7.jpeg)
+
+
+---
+
+# 🚀 FINAL STEP
+
+```bash
+git add README.md
+git commit -m "fixed mermaid block"
+git push
