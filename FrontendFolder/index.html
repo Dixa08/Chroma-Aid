@@ -1,1 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-vision="normal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChromaAid — Color Vision Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── SIDEBAR NAV ── -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <span class="logo-c">C</span>
+      <span class="logo-dot"></span>
+    </div>
+    <span class="logo-text">ChromaAid</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="nav-item active" data-page="dashboard" onclick="handleNavigation('dashboard')">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Dashboard</span>
+    </a>
+    <a class="nav-item" data-page="test" onclick="handleNavigation('test')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      <span>Vision Tests</span>
+    </a>
+    <a class="nav-item" data-page="results" onclick="handleNavigation('results')">
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <span>Results</span>
+    </a>
+    <a class="nav-item" data-page="simulation" onclick="handleNavigation('simulation')">
+      <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Simulation</span>
+    </a>
+    <a class="nav-item" data-page="tools" onclick="handleNavigation('tools')">
+      <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      <span>Tools</span>
+    </a>
+    <a class="nav-item" data-page="games" onclick="handleNavigation('games')">
+      <svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
+      <span>Games</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleMode()">
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span id="themeLabel">Light</span>
+    </button>
+  </div>
+</aside>
+
+<!-- ── MOBILE HEADER ── -->
+<header class="mobile-header">
+  <button class="hamburger" id="hamburger" onclick="toggleSidebar()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-logo">ChromaAid</div>
+  <button class="theme-toggle-mobile" onclick="toggleMode()">
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+  </button>
+</header>
+
+<!-- ── MAIN CONTENT ── -->
+<main class="main-content" id="mainContent">
+
+  <!-- DASHBOARD PAGE -->
+  <section class="page active" id="page-dashboard">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Vision Dashboard</h1>
+        <p class="page-subtitle">Your color vision profile at a glance</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-primary" onclick="handleNavigation('test')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Start Test
+        </button>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- Status card -->
+      <div class="glass-card status-card" id="dashStatusCard">
+        <div class="card-glow"></div>
+        <div class="status-icon-wrap">
+          <div class="status-icon" id="dashStatusIcon">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+        </div>
+        <div class="status-info">
+          <h3 id="dashVisionType">No Test Taken</h3>
+          <p id="dashVisionDesc">Take a vision test to see your profile</p>
+          <div class="severity-badge" id="dashSeverity" style="display:none"></div>
+        </div>
+        <div class="confidence-ring" id="dashConfidence">
+          <svg viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" class="ring-bg"/>
+            <circle cx="40" cy="40" r="32" class="ring-fill" id="ringFill" stroke-dasharray="0 201"/>
+          </svg>
+          <span id="confidencePct">—</span>
+        </div>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="glass-card stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-val" id="statTests">0</div>
+        <div class="stat-label">Tests Taken</div>
+      </div>
+      <div class="glass-card stat-card">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-val" id="statAccuracy">—</div>
+        <div class="stat-label">Last Accuracy</div>
+      </div>
+      <div class="glass-card stat-card">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-val" id="statAvgTime">—</div>
+        <div class="stat-label">Avg Response</div>
+      </div>
+
+      <!-- Color spectrum viz -->
+      <div class="glass-card spectrum-card">
+        <h3 class="card-title">Your Visible Spectrum</h3>
+        <div class="spectrum-bar-wrap">
+          <canvas id="spectrumCanvas" height="60"></canvas>
+        </div>
+        <div class="spectrum-legend" id="spectrumLegend">
+          <span class="legend-item"><span class="dot normal"></span>Visible</span>
+          <span class="legend-item"><span class="dot confused"></span>Confused</span>
+          <span class="legend-item"><span class="dot reduced"></span>Reduced</span>
+        </div>
+      </div>
+
+      <!-- Recent history -->
+      <div class="glass-card history-card">
+        <h3 class="card-title">Test History</h3>
+        <div class="history-list" id="historyList">
+          <div class="empty-state">No tests yet. Start your first test!</div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="glass-card actions-card">
+        <h3 class="card-title">Quick Actions</h3>
+        <div class="quick-actions">
+          <button class="qa-btn" onclick="handleNavigation('test')">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+            Ishihara Test
+          </button>
+          <button class="qa-btn" onclick="startHRRTest()">
+            <svg viewBox="0 0 24 24"><polygon points="3 18 12 2 21 18"/></svg>
+            HRR Test
+          </button>
+          <button class="qa-btn" onclick="handleNavigation('simulation')">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            Simulate
+          </button>
+          <button class="qa-btn" onclick="handleNavigation('games')">
+            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
+            Play Games
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION TEST PAGE -->
+  <section class="page" id="page-test">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Vision Tests</h1>
+        <p class="page-subtitle">Adaptive color vision assessment</p>
+      </div>
+    </div>
+
+    <!-- Test selection screen -->
+    <div id="testSelection">
+      <div class="test-type-grid">
+        <div class="glass-card test-type-card" onclick="startTest('ishihara')">
+          <div class="test-type-preview">
+            <canvas id="previewIshihara" width="120" height="120"></canvas>
+          </div>
+          <h3>Ishihara-Style Test</h3>
+          <p>Identify hidden numbers in dot patterns. 25 adaptive plates.</p>
+          <div class="test-meta">
+            <span>~5–8 min</span>
+            <span>25 plates</span>
+          </div>
+          <button class="btn-primary">Begin Test</button>
+        </div>
+
+        <div class="glass-card test-type-card" onclick="startTest('hrr')">
+          <div class="test-type-preview">
+            <canvas id="previewHRR" width="120" height="120"></canvas>
+          </div>
+          <h3>HRR Shape Test</h3>
+          <p>Detect hidden shapes — circle, triangle, cross — using color perception.</p>
+          <div class="test-meta">
+            <span>~3–5 min</span>
+            <span>15 plates</span>
+          </div>
+          <button class="btn-primary">Begin Test</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active test screen -->
+    <div id="testActive" style="display:none">
+      <div class="test-hud">
+        <div class="hud-item">
+          <span class="hud-label">Plate</span>
+          <span class="hud-val" id="plateCounter">1/25</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">Score</span>
+          <span class="hud-val" id="testScore">0</span>
+        </div>
+        <div class="hud-item timer-wrap">
+          <span class="hud-label">Time</span>
+          <span class="hud-val" id="timerDisplay">00:00</span>
+        </div>
+        <button class="btn-ghost" onclick="endTestEarly()">End Test</button>
+      </div>
+
+      <div class="test-plate-wrap">
+        <canvas id="testCanvas" width="360" height="360"></canvas>
+        <div class="plate-hint" id="plateHint">What do you see?</div>
+      </div>
+
+      <!-- Answer input for Ishihara -->
+      <div class="answer-area" id="answerArea">
+        <div class="answer-grid" id="answerGrid">
+          <!-- buttons injected dynamically -->
+        </div>
+        <button class="btn-ghost btn-nothing" onclick="handleAnswer('nothing')">I see nothing</button>
+      </div>
+
+      <!-- Progress -->
+      <div class="test-progress-wrap">
+        <div class="test-progress-bar">
+          <div class="test-progress-fill" id="testProgressFill"></div>
+        </div>
+      </div>
+
+      <!-- Feedback flash -->
+      <div class="feedback-flash" id="feedbackFlash"></div>
+    </div>
+
+    <!-- Test complete screen -->
+    <div id="testComplete" style="display:none">
+      <div class="glass-card complete-card">
+        <div class="complete-icon">✓</div>
+        <h2>Test Complete!</h2>
+        <p id="completeMsg">Analyzing your responses…</p>
+        <div class="complete-stats" id="completeStats"></div>
+        <button class="btn-primary" onclick="viewResults()">View Full Results</button>
+        <button class="btn-ghost" onclick="handleNavigation('test')">Take Another Test</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS PAGE -->
+  <section class="page" id="page-results">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Results & Analysis</h1>
+        <p class="page-subtitle">Detailed breakdown of your vision profile</p>
+      </div>
+      <button class="btn-ghost" onclick="exportResults()">Export PDF</button>
+    </div>
+
+    <div id="resultsEmpty" class="empty-page-state">
+      <div class="empty-illustration">👁️</div>
+      <h2>No Results Yet</h2>
+      <p>Complete a vision test to see your detailed analysis here.</p>
+      <button class="btn-primary" onclick="handleNavigation('test')">Start a Test</button>
+    </div>
+
+    <div id="resultsContent" style="display:none">
+      <div class="results-grid">
+        <div class="glass-card result-main-card">
+          <div class="result-verdict" id="resultVerdict">
+            <div class="verdict-badge" id="verdictBadge"></div>
+            <h2 id="verdictTitle"></h2>
+            <p id="verdictDesc"></p>
+            <div class="confidence-bar-wrap">
+              <span>Confidence</span>
+              <div class="conf-bar"><div class="conf-bar-fill" id="confBarFill"></div></div>
+              <span id="confBarPct"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card result-detail-card">
+          <h3 class="card-title">Deficiency Breakdown</h3>
+          <div class="deficiency-bars" id="deficiencyBars"></div>
+        </div>
+
+        <div class="glass-card result-spectrum-card">
+          <h3 class="card-title">Color Spectrum Analysis</h3>
+          <canvas id="resultSpectrumCanvas" height="80"></canvas>
+          <div class="spectrum-annotations" id="spectrumAnnotations"></div>
+        </div>
+
+        <div class="glass-card result-plate-review">
+          <h3 class="card-title">Plate-by-Plate Review</h3>
+          <div class="plate-review-grid" id="plateReviewGrid"></div>
+        </div>
+
+        <div class="glass-card result-recommendations">
+          <h3 class="card-title">Recommendations</h3>
+          <div class="recs-list" id="recsList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATION PAGE -->
+  <section class="page" id="page-simulation">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Color Simulation</h1>
+        <p class="page-subtitle">See the world through different eyes</p>
+      </div>
+    </div>
+
+    <div class="sim-layout">
+      <!-- Controls -->
+      <div class="glass-card sim-controls-card">
+        <h3 class="card-title">Simulation Mode</h3>
+        <div class="sim-mode-btns">
+          <button class="sim-mode-btn active" data-mode="normal" onclick="setSimMode('normal',this)">Normal</button>
+          <button class="sim-mode-btn" data-mode="protanopia" onclick="setSimMode('protanopia',this)">Protanopia</button>
+          <button class="sim-mode-btn" data-mode="deuteranopia" onclick="setSimMode('deuteranopia',this)">Deuteranopia</button>
+          <button class="sim-mode-btn" data-mode="tritanopia" onclick="setSimMode('tritanopia',this)">Tritanopia</button>
+          <button class="sim-mode-btn" data-mode="monochromacy" onclick="setSimMode('monochromacy',this)">Monochromacy</button>
+          <button class="sim-mode-btn" data-mode="bluecone" onclick="setSimMode('bluecone',this)">Blue Cone</button>
+        </div>
+
+        <div class="sim-upload-area" id="simUploadArea" onclick="document.getElementById('simFileInput').click()">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span>Upload Image</span>
+          <small>or use sample image below</small>
+        </div>
+        <input type="file" id="simFileInput" accept="image/*" style="display:none" onchange="handleImageUpload(event)">
+
+        <div class="sim-samples">
+          <span class="samples-label">Samples:</span>
+          <div class="sample-thumbs" id="sampleThumbs"></div>
+        </div>
+
+        <div class="visible-range-panel">
+          <h4>Visible Color Range</h4>
+          <canvas id="visibleRangeCanvas" height="40"></canvas>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="glass-card sim-preview-card">
+        <div class="preview-header">
+          <span class="preview-label">Original</span>
+          <div class="preview-divider">↔</div>
+          <span class="preview-label" id="simModeLabel">Normal Vision</span>
+        </div>
+        <div class="preview-canvases">
+          <canvas id="simOriginalCanvas"></canvas>
+          <canvas id="simFilterCanvas"></canvas>
+        </div>
+        <div class="sim-comparison-slider" id="simSlider">
+          <input type="range" id="simSliderInput" min="0" max="100" value="50" oninput="updateSimSlider(this.value)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS PAGE -->
+  <section class="page" id="page-tools">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Assistive Tools</h1>
+        <p class="page-subtitle">Real-world color identification aids</p>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+      <!-- Color detector -->
+      <div class="glass-card tool-card color-detector-card">
+        <h3 class="card-title">Color Detector</h3>
+        <div class="color-detect-area">
+          <canvas id="colorDetectCanvas" width="300" height="200"></canvas>
+          <div class="color-detect-crosshair"></div>
+        </div>
+        <div class="detected-color-info" id="detectedColorInfo">
+          <div class="color-swatch" id="colorSwatch"></div>
+          <div class="color-text-info">
+            <div class="color-name" id="colorName">Upload or use camera</div>
+            <div class="color-hex" id="colorHex">—</div>
+          </div>
+          <button class="btn-icon" onclick="speakColor()" title="Read color aloud">🔊</button>
+        </div>
+        <input type="file" id="colorDetectFile" accept="image/*" style="display:none" onchange="handleColorDetect(event)">
+        <div class="tool-btns">
+          <button class="btn-ghost" onclick="document.getElementById('colorDetectFile').click()">Upload Image</button>
+          <button class="btn-ghost" id="cameraBtn" onclick="startCamera()">Use Camera</button>
+        </div>
+      </div>
+
+      <!-- TTS Card -->
+      <div class="glass-card tool-card tts-card">
+        <h3 class="card-title">Text-to-Speech Color Labels</h3>
+        <p class="tool-desc">Tap any color in your image to hear its name spoken aloud.</p>
+        <div class="tts-demo-colors" id="ttsDemoColors"></div>
+        <div class="tts-status" id="ttsStatus">Ready</div>
+      </div>
+
+      <!-- Color info card -->
+      <div class="glass-card tool-card color-info-card">
+        <h3 class="card-title">Color Confusion Pairs</h3>
+        <p class="tool-desc">Colors often confused by each type of color blindness:</p>
+        <div class="confusion-pairs" id="confusionPairs"></div>
+      </div>
+
+      <!-- Accessibility tips -->
+      <div class="glass-card tool-card tips-card">
+        <h3 class="card-title">Daily Life Tips</h3>
+        <div class="tips-list" id="tipsList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMES PAGE -->
+  <section class="page" id="page-games">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Color Games</h1>
+        <p class="page-subtitle">Train your color perception</p>
+      </div>
+      <div class="game-score-display">
+        <span>Score: </span><span id="gameScoreDisplay">0</span>
+      </div>
+    </div>
+
+    <div id="gameSelection">
+      <div class="games-grid">
+        <div class="glass-card game-card" onclick="startGame('shade-match')">
+          <div class="game-icon">🎨</div>
+          <h3>Shade Match</h3>
+          <p>Find the square that matches the target shade</p>
+          <div class="game-difficulty">★★☆</div>
+        </div>
+        <div class="glass-card game-card" onclick="startGame('guess-color')">
+          <div class="game-icon">❓</div>
+          <h3>Guess the Color</h3>
+          <p>Name the color shown on screen</p>
+          <div class="game-difficulty">★☆☆</div>
+        </div>
+        <div class="glass-card game-card" onclick="startGame('odd-color')">
+          <div class="game-icon">🔍</div>
+          <h3>Find the Odd One</h3>
+          <p>Spot the square with a slightly different color</p>
+          <div class="game-difficulty">★★★</div>
+        </div>
+        <div class="glass-card game-card" onclick="startGame('memory-seq')">
+          <div class="game-icon">🧠</div>
+          <h3>Memory Sequence</h3>
+          <p>Remember and repeat the color sequence</p>
+          <div class="game-difficulty">★★☆</div>
+        </div>
+        <div class="glass-card game-card" onclick="startGame('color-sort')">
+          <div class="game-icon">📊</div>
+          <h3>Color Sort</h3>
+          <p>Sort colors from darkest to lightest</p>
+          <div class="game-difficulty">★★☆</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameActive" style="display:none">
+      <div class="game-hud">
+        <button class="btn-ghost" onclick="exitGame()">← Back</button>
+        <span class="game-title-hud" id="gameTitleHud"></span>
+        <div class="game-lives" id="gameLives">❤️❤️❤️</div>
+      </div>
+      <div class="game-area" id="gameArea"></div>
+      <div class="game-feedback" id="gameFeedback"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── OVERLAY (mobile sidebar) ── -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
