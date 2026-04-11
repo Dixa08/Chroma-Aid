@@ -53,7 +53,48 @@
 ---
 
 ## 📁 Project Structure
+## 🧠 System Architecture
 
+```mermaid
+flowchart TD
+
+    %% USER
+    U([👤 User])
+
+    %% UI
+    subgraph UI[UI Layer (React + Vite)]
+        UI1[Pages]
+        UI2[Components]
+        UI3[Routing]
+    end
+
+    %% FEATURES
+    subgraph F[Core Features]
+        F1[🧪 Ishihara Test]
+        F2[📷 Camera Detection]
+        F3[🎤 Voice Guidance]
+        F4[📊 Dashboard]
+    end
+
+    %% LOGIC
+    subgraph L[Logic Layer]
+        L1[Scoring Engine]
+        L2[CVD Simulation]
+        L3[Color Processing]
+    end
+
+    %% DATA
+    subgraph D[Data Layer]
+        D1[LocalStorage]
+        D2[Test Dataset]
+    end
+
+    %% FLOW
+    U --> UI
+    UI --> F
+    F --> L
+    L --> D
+    D --> UI
 
 ---
 
