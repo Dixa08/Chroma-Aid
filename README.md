@@ -23,102 +23,69 @@
 ### 📷 Real-Time Color Detection
 - Uses camera to detect colors
 - Displays closest color name
-- Helpful for daily object identification
 
 ---
 
 ### 🎤 Voice Guidance
 - Audio feedback for accessibility
-- Assists visually impaired users
 
 ---
 
 ### 📊 Dashboard
-- Tracks:
-  - Tests taken
-  - Scores
-  - Activity overview
+- Tracks test performance and activity
 
 ---
 
 ### 🎨 Smart Color Utilities
 - Color naming
-- Color transformation using CVD matrices
+- CVD simulation
 - Accessibility scoring
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React + Vite
-- **Styling:** Tailwind CSS
-- **Routing:** React Router DOM
-- **State Management:** Context API
-- **Utilities:** Custom color engine logic
+- React + Vite  
+- Tailwind CSS  
+- React Router DOM  
+- Context API  
 
 ---
 
-## 🧩 Project Structure (Visual)
-
-```mermaid
-graph TD
-    A[chroma-aid] --> B[public]
-    B --> B1[index.html]
-
-    A --> C[src]
-
-    C --> D[pages]
-    D --> D1[Landing.jsx]
-    D --> D2[Test.jsx]
-    D --> D3[Camera.jsx]
-    D --> D4[Dashboard.jsx]
-    D --> D5[Results.jsx]
-
-    C --> E[components]
-    E --> E1[Navbar.jsx]
-    E --> E2[IshiharaPlate.jsx]
-    E --> E3[VoiceGuide.jsx]
-    E --> E4[ColourDetector.jsx]
-
-    C --> F[utils]
-    F --> F1[colourNames.js]
-    F --> F2[cvdMatrices.js]
-    F --> F3[scoring.js]
-
-    C --> G[App.jsx]
-    C --> H[main.jsx]
-
-    A --> I[README.md]
-    A --> J[package.json]
-    A --> K[vite.config.js]
+## 📁 Project Structure
 
 
-
+---
 
 ## 📸 Feature Showcase
 
 ### 🧪 Color Blindness Test
-![Test UI](./img/picture1.jpeg)
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture1.jpeg" width="600">
 
 ### 🎯 User Answer Selection
-![Selection](./img/picture2.jpeg)
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture2.jpeg" width="600">
 
 ### 📊 Result Screen
-![Result](./img/picture3.jpeg)
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture3.jpeg" width="600">
 
 ### 💡 Recommendations
-![Recommendations](./img/picture4.jpeg)
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture4.jpeg" width="600">
 
 ### 📷 Camera Detection
-![Camera](./img/picture5.jpeg)
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture5.jpeg" width="600">
 
 ### 📊 Dashboard
-![Dashboard](./img/picture6.jpeg)
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture6.jpeg" width="600">
 
 ### 🎤 Voice Assistance
-![Voice](./img/picture7.jpeg)
-
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture7.jpeg" width="600">
 
 ---
 
+## ⚙️ Installation
 
+```bash
+git clone https://github.com/Dixa08/Chroma-Aid.git
+cd Chroma-Aid
+npm install
+npm run dev
