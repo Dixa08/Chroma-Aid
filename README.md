@@ -64,8 +64,6 @@
 
 ### 🎯 User Answer Selection
 <img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture2.jpeg" width="600">
-
-### 📊 Result Screen
 <img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture3.jpeg" width="600">
 
 ### 💡 Recommendations
@@ -74,10 +72,10 @@
 ### 📷 Camera Detection
 <img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture5.jpeg" width="600">
 
-### 📊 Dashboard
+### 📊  how normal and cvd see the image 
 <img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture6.jpeg" width="600">
 
-### 🎤 Voice Assistance
+### 🎤 colour detection Voice Assistance
 <img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture7.jpeg" width="600">
 
 ---
