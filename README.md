@@ -54,52 +54,26 @@
 
 ## 📁 Project Structure
 ## 🧠 System Architecture
-
 ## 🧠 System Architecture
 
 ```mermaid
-flowchart TD
+graph TD
+    A[User] --> B[UI Layer]
+    B --> C[Core Features]
+    C --> D[Logic Layer]
+    D --> E[Data Layer]
 
-    U[User]
+    C --> F[Ishihara Test]
+    C --> G[Camera]
+    C --> H[Voice]
+    C --> I[Dashboard]
 
-    subgraph UI_Layer
-        UI1[Pages]
-        UI2[Components]
-        UI3[Routing]
-    end
+    D --> J[Scoring]
+    D --> K[CVD Simulation]
+    D --> L[Color Engine]
 
-    subgraph Core_Features
-        F1[Ishihara Test]
-        F2[Camera Detection]
-        F3[Voice Guidance]
-        F4[Dashboard]
-    end
-
-    subgraph Logic_Layer
-        L1[Scoring Engine]
-        L2[CVD Simulation]
-        L3[Color Processing]
-    end
-
-    subgraph Data_Layer
-        D1[LocalStorage]
-        D2[Test Data]
-    end
-
-    U --> UI1
-    UI1 --> F1
-    UI1 --> F2
-    UI1 --> F3
-    UI1 --> F4
-
-    F1 --> L1
-    F2 --> L3
-    F3 --> L3
-    F4 --> L1
-
-    L1 --> D1
-    L2 --> D2
-    L3 --> D1
+    E --> M[LocalStorage]
+    E --> N[Test Data]
 ---
 
 ## 📸 Feature Showcase
