@@ -92,3 +92,54 @@ graph TD
     A --> I[README.md]
     A --> J[package.json]
     A --> K[vite.config.js]
+
+
+
+## 🧠 Chroma Aid System Architecture (Detailed)
+
+```mermaid
+flowchart TD
+
+    %% USER
+    U[User] --> UI
+
+    %% FRONTEND LAYER
+    subgraph UI[Frontend - React App]
+        PAGES[Pages Layer]
+        COMPONENTS[Reusable Components]
+        ROUTER[React Router]
+
+        PAGES --> COMPONENTS
+        ROUTER --> PAGES
+    end
+
+    %% CORE FEATURES
+    subgraph FEATURES[Core Features]
+        TEST[Ishihara Test System]
+        CAMERA[Camera Color Detection]
+        VOICE[Voice Guidance]
+        DASH[Dashboard Analytics]
+    end
+
+    UI --> FEATURES
+
+    %% LOGIC LAYER
+    subgraph LOGIC[Application Logic Layer]
+        SCORING[Scoring Engine]
+        CVD[Color Vision Simulation]
+        COLOR[Color Recognition Engine]
+    end
+
+    FEATURES --> LOGIC
+
+    %% DATA LAYER
+    subgraph DATA[Data Layer]
+        LOCAL[LocalStorage]
+        STATIC[Static Test Data]
+    end
+
+    LOGIC --> DATA
+
+    %% OUTPUT
+    DATA --> RESULT[Results & Insights]
+    RESULT --> UI
