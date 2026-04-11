@@ -53,8 +53,10 @@
 ---
 
 ## 📁 Project Structure
+
 ## 🧠 System Architecture
-## 🧠 System Architecture
+
+<img src="https://raw.githubusercontent.com/Dixa08/Chroma-Aid/main/img/picture8.jpeg" width="600">
 
 
 
