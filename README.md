@@ -59,3 +59,36 @@
 ---
 
 ## 📁 Project Structure
+## 🧩 Project Structure (Visual)
+
+```mermaid
+graph TD
+    A[chroma-aid] --> B[public]
+    B --> B1[index.html]
+
+    A --> C[src]
+
+    C --> D[pages]
+    D --> D1[Landing.jsx]
+    D --> D2[Test.jsx]
+    D --> D3[Camera.jsx]
+    D --> D4[Dashboard.jsx]
+    D --> D5[Results.jsx]
+
+    C --> E[components]
+    E --> E1[Navbar.jsx]
+    E --> E2[IshiharaPlate.jsx]
+    E --> E3[VoiceGuide.jsx]
+    E --> E4[ColourDetector.jsx]
+
+    C --> F[utils]
+    F --> F1[colourNames.js]
+    F --> F2[cvdMatrices.js]
+    F --> F3[scoring.js]
+
+    C --> G[App.jsx]
+    C --> H[main.jsx]
+
+    A --> I[README.md]
+    A --> J[package.json]
+    A --> K[vite.config.js]
