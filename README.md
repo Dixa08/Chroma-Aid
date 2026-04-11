@@ -93,53 +93,55 @@ graph TD
     A --> J[package.json]
     A --> K[vite.config.js]
 
+## 📸 Feature Showcase
 
+---
 
-## 🧠 Chroma Aid System Architecture (Detailed)
+### 🧪 Types of Color Blindness Test
 
-```mermaid
-flowchart TD
+This system supports multiple Ishihara-based tests to detect different types of color vision deficiencies.
 
-    %% USER
-    U[User] --> UI
+![Test Types](img/test-types.png)
 
-    %% FRONTEND LAYER
-    subgraph UI[Frontend - React App]
-        PAGES[Pages Layer]
-        COMPONENTS[Reusable Components]
-        ROUTER[React Router]
+- Normal Vision Test
+- Protanopia Detection (Red deficiency)
+- Deuteranopia Detection (Green deficiency)
+- Tritanopia Detection (Blue deficiency)
 
-        PAGES --> COMPONENTS
-        ROUTER --> PAGES
-    end
+---
 
-    %% CORE FEATURES
-    subgraph FEATURES[Core Features]
-        TEST[Ishihara Test System]
-        CAMERA[Camera Color Detection]
-        VOICE[Voice Guidance]
-        DASH[Dashboard Analytics]
-    end
+### 🎯 User Interaction (Answer Selection)
 
-    UI --> FEATURES
+Users can select the number they see from Ishihara plates using an intuitive interface.
 
-    %% LOGIC LAYER
-    subgraph LOGIC[Application Logic Layer]
-        SCORING[Scoring Engine]
-        CVD[Color Vision Simulation]
-        COLOR[Color Recognition Engine]
-    end
+![User Selection](img/test-selection.png)
 
-    FEATURES --> LOGIC
+- Grid-based answer selection
+- Smooth UI feedback
+- Real-time progress tracking
 
-    %% DATA LAYER
-    subgraph DATA[Data Layer]
-        LOCAL[LocalStorage]
-        STATIC[Static Test Data]
-    end
+---
 
-    LOGIC --> DATA
+### 📊 Smart Result & Recommendation System
 
-    %% OUTPUT
-    DATA --> RESULT[Results & Insights]
-    RESULT --> UI
+After completing the test, users receive detailed insights and recommendations.
+
+![Results](img/result.png)
+
+- Detected color vision type
+- Confidence & accuracy score
+- Personalized recommendations
+
+---
+
+### 💡 Accessibility Recommendations
+
+The system suggests improvements based on detected condition.
+
+![Recommendations](img/recommendations.png)
+
+- UI color suggestions
+- Better contrast combinations
+- Real-world usability tips
+
+---
