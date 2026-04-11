@@ -56,25 +56,7 @@
 ## 🧠 System Architecture
 ## 🧠 System Architecture
 
-```mermaid
-graph TD
-    A[User] --> B[UI Layer]
-    B --> C[Core Features]
-    C --> D[Logic Layer]
-    D --> E[Data Layer]
 
-    C --> F[Ishihara Test]
-    C --> G[Camera]
-    C --> H[Voice]
-    C --> I[Dashboard]
-
-    D --> J[Scoring]
-    D --> K[CVD Simulation]
-    D --> L[Color Engine]
-
-    E --> M[LocalStorage]
-    E --> N[Test Data]
----
 
 ## 📸 Feature Showcase
 
