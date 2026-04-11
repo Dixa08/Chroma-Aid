@@ -293,6 +293,7 @@ body {
   inset: 0;
   background: rgba(0,0,0,0.5);
   z-index: 90;
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 }
 .overlay.active { display: block; }
@@ -1020,6 +1021,7 @@ body {
   cursor: grab;
   transition: transform 0.2s;
   border: 2px solid transparent;
+  -webkit-user-select: none;
   user-select: none;
 }
 .sort-item:hover { transform: scale(1.05); }
