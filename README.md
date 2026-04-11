@@ -91,3 +91,26 @@ graph TD
     A --> I[README.md]
     A --> J[package.json]
     A --> K[vite.config.js]
+
+## 📸 Feature Showcase
+
+### 🧪 Color Blindness Test
+![Test UI](./img/picture1.jpeg)
+
+### 🎯 User Answer Selection
+![Selection](./img/picture2.jpeg)
+
+### 📊 Result Screen
+![Result](./img/picture3.jpeg)
+
+### 💡 Recommendations
+![Recommendations](./img/picture4.jpeg)
+
+### 📷 Camera Detection
+![Camera](./img/picture5.jpeg)
+
+### 📊 Dashboard
+![Dashboard](./img/picture6.jpeg)
+
+### 🎤 Voice Assistance
+![Voice](./img/picture7.jpeg)
